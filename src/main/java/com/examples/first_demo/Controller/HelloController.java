@@ -37,10 +37,9 @@ public class HelloController {
         return "username： "+name;
     }
 
-    @RequestMapping(value = "/llp",method = RequestMethod.POST)
-    public String gess(String password){
-        return "password:  "+password;
-    }
+
+
+
 
 
 }
