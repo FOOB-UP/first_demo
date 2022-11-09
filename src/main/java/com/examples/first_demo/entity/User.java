@@ -1,4 +1,4 @@
-package com.examples.first_demo.Dao;
+package com.examples.first_demo.entity;
 
 public class User {
     public String name;

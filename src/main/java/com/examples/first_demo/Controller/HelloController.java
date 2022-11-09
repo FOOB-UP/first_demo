@@ -1,6 +1,6 @@
 package com.examples.first_demo.Controller;
 
-import com.examples.first_demo.Dao.User;
+import com.examples.first_demo.entity.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,7 +12,7 @@ public class HelloController {
     }
 
 
-    @RequestMapping("/uses")
+    @RequestMapping("/user/ww")
     public String hell(String name){
         System.out.println(name);
         return "成功了"+name;
