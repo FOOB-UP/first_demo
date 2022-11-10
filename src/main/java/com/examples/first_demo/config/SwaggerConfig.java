@@ -31,7 +31,6 @@ public class SwaggerConfig {
                 //可以根据url路径设置哪些请求加入文档，忽略哪些请求
                 .build();
     }
-
     /**
      * 设置api文档的详细信息
      */
