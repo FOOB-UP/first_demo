@@ -17,30 +17,29 @@ public class UserController {
     @ApiOperation("获取用户")
     @GetMapping("/user")
     public String query(){
-        List<User> list = userMapper.find();
+        List<User> list = userMapper.selectList(null);
         return "成功了"+list.toString();
     }
 
     @ApiOperation("新增用户")
     @PostMapping("/user")
-    public User hsx(@RequestBody User user) {
-        System.out.println("name" + user.name);
-        System.out.println("password" + user.password);
-        return user;
+    public String add(@RequestBody User user) {
+        int i = userMapper.insert(user);
+        return "新增用户成功";
     }
 
     @ApiOperation("更新用户")
     @PutMapping("/user")
-    public User gets(User user){
-        System.out.println(user);
-        return user;
+    public String gets(User user){
+        int i = userMapper.updateById(user);
+        return "更新成功";
     }
 
     @ApiOperation("删除用户")
     @DeleteMapping("/user/{id}")
     public String getname(@PathVariable String id){
-        System.out.println(id);
-        return "username： "+id;
+        int i =userMapper.deleteById(id);
+        return "删除成功： "+id;
     }
 
 }
