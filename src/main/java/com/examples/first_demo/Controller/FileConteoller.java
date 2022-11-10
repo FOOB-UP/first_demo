@@ -28,10 +28,8 @@ public class FileConteoller  {
         System.out.println(file.getOriginalFilename());
         //获取图片类型
         System.out.println(file.getContentType());
-
         //获取图片大小
         System.out.println(file.getSize());
-
         //获取图片路径
         log.info("文件上传开始");
         log.info("文件{}",file.getOriginalFilename());
@@ -50,7 +48,7 @@ public class FileConteoller  {
         return "上传成功";
     }
 
-    @RequestMapping("/dowd")
+    @RequestMapping(value = "/dowd",method = RequestMethod.GET)
     public ResponseEntity<Object> download() throws IOException {
         //提供下载的文件的路径
         FileSystemResource file = new FileSystemResource("/Users/anker/Desktop/data/first_demo/src/main/resources/static/头像.jpeg");
