@@ -18,7 +18,7 @@ public class UserController {
     @GetMapping("/user")
     public String query(){
         List<User> list = userMapper.selectList(null);
-        return "成功了"+list.toString();
+        return "获取成功："+list.toString();
     }
 
     @ApiOperation("新增用户")
@@ -41,4 +41,5 @@ public class UserController {
         int i =userMapper.deleteById(id);
         return "删除成功： "+id;
     }
+
 }
