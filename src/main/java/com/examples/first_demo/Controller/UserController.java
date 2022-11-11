@@ -21,6 +21,7 @@ public class UserController {
         return "获取成功："+list.toString();
     }
 
+
     @ApiOperation("新增用户")
     @PostMapping("/user")
     public String add(@RequestBody User user) {
