@@ -42,4 +42,11 @@ public class UserController {
         return "删除成功： "+id;
     }
 
+    @ApiOperation("修改部分用户")
+    @DeleteMapping("/user")
+    public String updat(@PathVariable String id){
+        int i =userMapper.deleteById(id);
+        return "删除成功： "+id;
+    }
+
 }
