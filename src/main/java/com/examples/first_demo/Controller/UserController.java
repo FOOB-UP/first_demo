@@ -18,7 +18,7 @@ public class UserController {
     @GetMapping("/user")
     public String query(){
         List<User> list = userMapper.selectList(null);
-        return "获取成功："+list.toString();
+        return "获取失败："+list.toString();
     }
 
     @ApiOperation("新增用户")
