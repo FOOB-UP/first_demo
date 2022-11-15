@@ -1,5 +1,9 @@
 package com.examples.first_demo.Controller;
 
+import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.examples.first_demo.entity.User;
 import com.examples.first_demo.mapper.UserMapper;
 import io.swagger.annotations.ApiOperation;
@@ -14,11 +18,21 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
-    @ApiOperation("获取用户")
-    @GetMapping("/user")
-    public String query(){
-        List<User> list = userMapper.selectList(null);
-        return "获取失败："+list.toString();
+    @ApiOperation("根据用户名获取用户")
+    @GetMapping("/user/{name}")
+    public String query(String name){
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper();
+        userQueryWrapper.eq("name",name);
+        List<User> list = userMapper.selectList(userQueryWrapper);
+        return list.toString();
+    }
+
+    @ApiOperation("获取全部用户并将其分组")
+    @GetMapping("/FildAll")
+    public IPage FindAll(){
+        Page<User> userPage =new Page<>(0,2);
+        IPage iPage = userMapper.selectPage(userPage,null);
+        return iPage;
     }
 
     @ApiOperation("新增用户")
