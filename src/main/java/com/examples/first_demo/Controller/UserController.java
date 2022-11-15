@@ -42,4 +42,11 @@ public class UserController {
         return "删除成功： "+id;
     }
 
+    @ApiOperation("查询用户之下的订单")
+    @GetMapping("/user_order")
+    public List<User> getUserOrder(){
+        System.out.println(userMapper.finds().toString());
+        return userMapper.finds();
+    }
+
 }
