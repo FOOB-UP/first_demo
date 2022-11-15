@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.List;
 
 @TableName("orders")
 public class order {
@@ -17,7 +18,17 @@ public class order {
     public int userId;
     public String orderName;
     public Date orderTime;
+    @TableField(javaType = false)
+    public List<User> user;
 
+
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;
@@ -59,6 +70,7 @@ public class order {
                 ", userId=" + userId +
                 ", orderName='" + orderName + '\'' +
                 ", orderTime=" + orderTime +
+                ", user=" + user +
                 '}';
     }
 }

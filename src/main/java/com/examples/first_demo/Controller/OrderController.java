@@ -24,4 +24,10 @@ public class OrderController {
         return orderMapper.findByid(id);
     }
 
+    @GetMapping("/OrdersUser")
+    List<order> findOrdersUser(){
+        List<order> orders = orderMapper.findOrderUser();
+        return orders;
+    }
+
 }

@@ -29,6 +29,9 @@ public interface UserMapper extends BaseMapper<User> {
               }
       )
       List<User> finds();
+
+      @Select("select * from user where id = #{id} ")
+      List<User> findbyid(int id);
 //
 //    public int romve(User user)
 }

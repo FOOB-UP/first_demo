@@ -49,4 +49,11 @@ public class UserController {
         return userMapper.finds();
     }
 
+
+    @ApiOperation("根据id查询用户")
+    @GetMapping("/userfind/{id}")
+    public List<User> getUserFind(int id){
+        return userMapper.findbyid(id);
+    }
+
 }
